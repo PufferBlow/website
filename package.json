@@ -11,7 +11,8 @@
     "preview": "vite preview --host 0.0.0.0 --port 4173 --strictPort",
     "typecheck": "tsc -b --noEmit",
     "lint": "eslint . --ext ts,tsx --max-warnings 0",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "sync:docs": "node scripts/sync-docs.mjs"
   },
   "dependencies": {
     "react": "^19.1.1",
