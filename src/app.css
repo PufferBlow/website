@@ -1,0 +1,221 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif, "Noto Color Emoji",
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", "SF Mono", Monaco,
+    Inconsolata, "Roboto Mono", "Source Code Pro", monospace;
+}
+
+:root {
+  --color-background: #050505;
+  --color-background-secondary: #0c0c0c;
+  --color-background-tertiary: #111111;
+  --color-surface: #101010;
+  --color-surface-secondary: #171717;
+  --color-surface-tertiary: #232323;
+  --color-text: #fafafa;
+  --color-text-secondary: #d4d4d4;
+  --color-text-tertiary: #a3a3a3;
+  --color-text-muted: #737373;
+  --color-border: rgba(255, 255, 255, 0.16);
+  --color-border-secondary: rgba(255, 255, 255, 0.08);
+  --color-primary: #fafafa;
+  --color-primary-hover: #e5e5e5;
+  --color-accent: #e5e5e5;
+  --color-success: #7ecf9f;
+  --color-warning: #d6b36a;
+  --color-error: #d8837b;
+  --color-info: #86aee8;
+  --color-hover: #1a1a1a;
+  --color-active: #242424;
+  --color-focus: #ffffff;
+  --color-shadow: rgba(0, 0, 0, 0.22);
+  --color-shadow-lg: rgba(0, 0, 0, 0.34);
+  --color-on-primary: #000000;
+}
+
+html,
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  scrollbar-color: var(--color-border-secondary) transparent;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--color-primary) 20%, transparent);
+  color: var(--color-text);
+}
+
+.pb-focus-ring:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* Icon/button primitives */
+.pb-icon-btn {
+  width: 2rem;
+  height: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  border: 1px solid var(--color-border-secondary);
+  background-color: transparent;
+  color: var(--color-text-secondary);
+  transition:
+    background-color 150ms ease,
+    color 150ms ease,
+    border-color 150ms ease;
+}
+
+.pb-icon-btn:hover {
+  background-color: var(--color-hover);
+  color: var(--color-text);
+  border-color: var(--color-border);
+}
+
+.pb-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Pufferblow brand mark */
+.pb-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text);
+  transition:
+    color 160ms ease,
+    opacity 160ms ease,
+    transform 160ms ease;
+}
+
+.pb-logo svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.pb-logo-spoke {
+  stroke: currentColor;
+  stroke-width: 3.2;
+  stroke-linecap: round;
+  fill: none;
+}
+
+.pb-logo-ring {
+  stroke: currentColor;
+  stroke-width: 3.2;
+  fill: none;
+}
+
+.pb-logo-dot {
+  fill: currentColor;
+}
+
+.pb-logo-knockout {
+  fill: var(--pb-logo-cutout, var(--color-background));
+}
+
+.pb-logo-spoke-h-right,
+.pb-logo-spoke-h-left {
+  animation-delay: 0.1s;
+}
+
+.pb-logo-spoke-v-down,
+.pb-logo-spoke-v-up {
+  animation-delay: 0.2s;
+}
+
+.pb-logo-spoke-d1-br,
+.pb-logo-spoke-d1-tl {
+  animation-delay: 0.32s;
+}
+
+.pb-logo-spoke-d2-bl,
+.pb-logo-spoke-d2-tr {
+  animation-delay: 0.44s;
+}
+
+.pb-logo-animated .pb-logo-spoke {
+  stroke-dasharray: 32;
+  stroke-dashoffset: 32;
+  animation: pbLogoExtend 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.pb-logo-animated .pb-logo-knockout {
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: scale(0);
+  animation: pbLogoKnockout 0.32s 0.62s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.pb-logo-animated .pb-logo-ring {
+  stroke-dasharray: 132;
+  stroke-dashoffset: 132;
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: rotate(-90deg);
+  animation: pbLogoDrawRing 0.55s 0.62s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.pb-logo-animated .pb-logo-dot {
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: scale(0);
+  animation: pbLogoPopDot 0.5s 1.12s cubic-bezier(0.34, 1.7, 0.64, 1) forwards;
+}
+
+.pb-logo-animated .pb-logo-mark {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pbLogoBreathe 4s 2s ease-in-out infinite;
+}
+
+@keyframes pbLogoExtend {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes pbLogoDrawRing {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes pbLogoPopDot {
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes pbLogoKnockout {
+  0% {
+    transform: scale(0);
+  }
+  72% {
+    transform: scale(1.07);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes pbLogoBreathe {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.045);
+  }
+}
