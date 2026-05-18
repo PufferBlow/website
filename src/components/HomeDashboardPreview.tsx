@@ -45,29 +45,30 @@ const voiceChannels: Channel[] = [
 const messages: Message[] = [
   {
     id: "m1",
-    author: "Pufferblow",
-    avatar: "PB",
+    author: "John Doe",
+    avatar: "JD",
     timestamp: "Today at 2:31 PM",
     content:
-      "Welcome to your decentralized server. Channels, members, and realtime updates stay in sync across instances.",
+      "First chat app where I don't have to wonder what's being logged. The server runs on our own box — everything stays here.",
     status: "online",
   },
   {
     id: "m2",
-    author: "John Doe",
-    avatar: "JD",
-    timestamp: "Today at 2:32 PM",
+    author: "Sarah Jane",
+    avatar: "SJ",
+    timestamp: "Today at 2:33 PM",
     content:
-      "The dashboard layout feels familiar and clean. Moving over from Discord was painless — I had a server up in a few minutes.",
-    status: "online",
+      "No ads, no \"recommended\" channels, no analytics SDK staring at me. I keep forgetting how loud the alternative was.",
+    status: "idle",
   },
   {
     id: "m3",
-    author: "Sarah Jane",
-    avatar: "SJ",
-    timestamp: "Today at 2:35 PM",
-    content: "Voice channels actually behave like voice channels here. The latency is great.",
-    status: "idle",
+    author: "Mike Brown",
+    avatar: "MB",
+    timestamp: "Today at 2:36 PM",
+    content:
+      "Closed my account on the big one yesterday. Honestly didn't realize how much it bothered me until I stopped seeing tracker prompts every time I joined a call.",
+    status: "dnd",
   },
 ];
 
