@@ -86,6 +86,203 @@ body {
   height: 1rem;
 }
 
+/* Docs prose — narrow rules tailored to the markdown we actually ship.
+   Keeps the dark-mode theme tokens; no @tailwindcss/typography needed. */
+.docs-prose {
+  color: var(--color-text-secondary);
+  font-size: 1rem;
+  line-height: 1.75;
+  max-width: 70ch;
+}
+
+.docs-prose > * + * {
+  margin-top: 1.25rem;
+}
+
+.docs-prose h1,
+.docs-prose h2,
+.docs-prose h3,
+.docs-prose h4 {
+  color: var(--color-text);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  scroll-margin-top: 6rem;
+}
+
+.docs-prose h1 {
+  font-size: 2.25rem;
+  letter-spacing: -0.045em;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.docs-prose h2 {
+  font-size: 1.5rem;
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border-secondary);
+}
+
+.docs-prose h3 {
+  font-size: 1.2rem;
+  margin-top: 2rem;
+}
+
+.docs-prose h4 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-tertiary);
+  margin-top: 1.75rem;
+}
+
+.docs-prose p,
+.docs-prose li {
+  color: var(--color-text-secondary);
+}
+
+.docs-prose a {
+  color: var(--color-text);
+  text-decoration: underline;
+  text-decoration-color: var(--color-border);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 150ms ease, color 150ms ease;
+}
+
+.docs-prose a:hover {
+  text-decoration-color: var(--color-text);
+}
+
+.docs-prose code {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  background: var(--color-surface-secondary);
+  border: 1px solid var(--color-border-secondary);
+  border-radius: 6px;
+  padding: 0.1em 0.4em;
+  color: var(--color-text);
+}
+
+.docs-prose pre {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-secondary);
+  border-radius: 14px;
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.docs-prose pre code {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  font-size: inherit;
+}
+
+.docs-prose ul,
+.docs-prose ol {
+  padding-left: 1.5rem;
+}
+
+.docs-prose ul {
+  list-style: disc;
+}
+
+.docs-prose ol {
+  list-style: decimal;
+}
+
+.docs-prose li + li {
+  margin-top: 0.35rem;
+}
+
+.docs-prose blockquote {
+  border-left: 3px solid var(--color-border);
+  background: var(--color-surface);
+  padding: 1rem 1.25rem;
+  border-radius: 0 14px 14px 0;
+  color: var(--color-text-secondary);
+}
+
+.docs-prose blockquote > * + * {
+  margin-top: 0.75rem;
+}
+
+.docs-prose blockquote strong:first-child {
+  display: inline-block;
+  color: var(--color-text);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  margin-bottom: 0.25rem;
+}
+
+.docs-prose table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  border: 1px solid var(--color-border-secondary);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.docs-prose th,
+.docs-prose td {
+  border-bottom: 1px solid var(--color-border-secondary);
+  padding: 0.6rem 0.9rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.docs-prose th {
+  background: var(--color-surface-secondary);
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.docs-prose tr:last-child td {
+  border-bottom: 0;
+}
+
+.docs-prose hr {
+  border: 0;
+  border-top: 1px solid var(--color-border-secondary);
+  margin: 2.5rem 0;
+}
+
+/* highlight.js token colors tuned for the dark theme. */
+.docs-prose .hljs {
+  color: var(--color-text);
+}
+.docs-prose .hljs-comment,
+.docs-prose .hljs-quote {
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+.docs-prose .hljs-keyword,
+.docs-prose .hljs-selector-tag,
+.docs-prose .hljs-section,
+.docs-prose .hljs-title {
+  color: #c9a4ff;
+}
+.docs-prose .hljs-string,
+.docs-prose .hljs-attr {
+  color: #a9d6a4;
+}
+.docs-prose .hljs-number,
+.docs-prose .hljs-literal {
+  color: #f0b884;
+}
+.docs-prose .hljs-built_in,
+.docs-prose .hljs-type {
+  color: #86aee8;
+}
+.docs-prose .hljs-variable,
+.docs-prose .hljs-name {
+  color: var(--color-text);
+}
+
 /* Pufferblow brand mark */
 .pb-logo {
   display: inline-flex;

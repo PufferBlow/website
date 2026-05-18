@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 import { DOCS_URL, SiteFooter, SiteNav } from "../components/SiteChrome";
 import { useDocumentTitle } from "../hooks/useDocumentTitle";
@@ -364,14 +365,12 @@ export default function Download() {
                   </p>
                 </div>
                 <div className="flex flex-col gap-3">
-                  <a
-                    href={DOCS_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <Link
+                    to={`${DOCS_URL}/operator`}
                     className="rounded-xl border border-[var(--color-primary)] bg-[var(--color-primary)] px-5 py-3 text-center text-sm font-medium text-[var(--color-on-primary)] transition-colors hover:bg-[var(--color-primary-hover)]"
                   >
                     Open setup docs
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

@@ -71,14 +71,12 @@ export default function Home() {
                 >
                   Download desktop client
                 </Link>
-                <a
-                  href={DOCS_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  to={DOCS_URL}
                   className="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] px-6 py-3 text-center text-sm font-medium text-[var(--color-text)] transition-colors hover:bg-[var(--color-surface-secondary)]"
                 >
                   Read the docs
-                </a>
+                </Link>
               </div>
 
               <div className="grid gap-3 sm:grid-cols-3">

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 import { PufferblowBrand } from "./PufferblowBrand";
 
-export const DOCS_URL = "https://pufferblow.github.io/pufferblow";
+export const DOCS_URL = "/docs";
 export const GITHUB_URL = "https://github.com/pufferblow/pufferblow";
 
 interface SiteNavProps {
@@ -24,14 +24,12 @@ export function SiteNav({ subtitle = "Self-Hosted Community Platform" }: SiteNav
         </Link>
 
         <div className="flex items-center gap-2 sm:gap-3">
-          <a
-            href={DOCS_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            to={DOCS_URL}
             className="rounded-xl border border-transparent px-3 py-2 text-sm text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-secondary)] hover:bg-[var(--color-hover)] hover:text-[var(--color-text)]"
           >
             Docs
-          </a>
+          </Link>
           <a
             href={GITHUB_URL}
             target="_blank"
@@ -65,14 +63,9 @@ export function SiteFooter() {
         />
 
         <div className="flex flex-wrap gap-4 text-sm text-[var(--color-text-secondary)]">
-          <a
-            href={DOCS_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="transition-colors hover:text-[var(--color-text)]"
-          >
+          <Link to={DOCS_URL} className="transition-colors hover:text-[var(--color-text)]">
             Documentation
-          </a>
+          </Link>
           <a
             href={GITHUB_URL}
             target="_blank"
