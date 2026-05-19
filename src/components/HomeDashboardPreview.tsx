@@ -279,6 +279,71 @@ function ChevronDownIcon({ className = "" }: { className?: string }) {
   );
 }
 
+// One row in the server rail. The selection/hover indicator is a
+// vertical pill on the LEFT edge of the rail — outside the avatar —
+// so hovering an avatar grows the pill without ever covering the
+// avatar glyph or its presence dot. Three pill states:
+//   - selected    → full-height pill (h-9), persistent
+//   - unread      → short pill (h-2), persistent
+//   - hovering    → mid-height pill (h-7), only while pointer is over
+//                   the row; suppressed when the avatar is already
+//                   selected so the pill doesn't shrink under the
+//                   pointer.
+type ServerItem = {
+  id: string;
+  initials: string;
+  selected?: boolean;
+  unread?: boolean;
+  status?: "online" | "idle" | "dnd";
+};
+
+function statusColor(status: ServerItem["status"]): string {
+  if (status === "online") return "bg-[var(--color-success)]";
+  if (status === "idle") return "bg-[var(--color-warning)]";
+  if (status === "dnd") return "bg-[var(--color-error)]";
+  return "bg-[var(--color-text-muted)]";
+}
+
+function ServerRailItem({ item }: { item: ServerItem }) {
+  const pillStatic = item.selected
+    ? "h-9"
+    : item.unread
+      ? "h-2"
+      : "h-0";
+  const pillHover = item.selected ? "" : "group-hover:h-7";
+  const avatarShape = item.selected
+    ? "rounded-2xl"
+    : "rounded-lg group-hover:rounded-2xl";
+  const avatarColors = item.selected
+    ? "bg-[var(--color-primary)] text-[var(--color-on-primary)]"
+    : "bg-[var(--color-surface-secondary)] text-[var(--color-text-secondary)] group-hover:bg-[var(--color-primary)] group-hover:text-[var(--color-on-primary)]";
+
+  return (
+    <div className="group relative flex h-12 w-16 items-center justify-center">
+      <span
+        aria-hidden
+        className={`absolute left-0 w-1 rounded-r-full bg-[var(--color-text)] transition-all duration-200 ${pillStatic} ${pillHover}`}
+      />
+      <div
+        className={`relative flex h-12 w-12 items-center justify-center text-sm font-semibold transition-all duration-200 ${avatarShape} ${avatarColors}`}
+      >
+        {item.initials}
+        {item.status && (
+          <span
+            className={`absolute -bottom-1 -right-1 h-3 w-3 rounded-full border-2 border-[var(--color-surface)] ${statusColor(item.status)}`}
+          />
+        )}
+      </div>
+    </div>
+  );
+}
+
+const railServers: ServerItem[] = [
+  { id: "home", initials: "PB", selected: true, status: "online" },
+  { id: "ws", initials: "WS", unread: true },
+  { id: "dv", initials: "DV" },
+];
+
 export default function HomeDashboardPreview() {
   return (
     <div className="relative max-w-6xl mx-auto">
@@ -300,27 +365,29 @@ export default function HomeDashboardPreview() {
           {/* Left sidebar column: server rail + channel panel stacked over user panel */}
           <div className="flex flex-col gap-2 h-full shrink-0 min-w-0">
             <div className="flex flex-1 gap-2 min-h-0">
-              {/* ServerRail */}
-              <div className="w-16 shrink-0 overflow-y-auto rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] py-2 flex flex-col items-center gap-2">
-                <div className="relative">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[var(--color-primary)] text-sm font-bold text-[var(--color-on-primary)]">
-                    PB
-                  </div>
-                  <div className="absolute -bottom-1 -right-1 h-3 w-3 rounded-full bg-[var(--color-success)] border-2 border-[var(--color-surface)]" />
+              {/* ServerRail — Discord-style left-pill selection indicator,
+                  avatars centered in a 64px column so the pill can sit on
+                  the rail's left edge without overlapping the avatar. */}
+              <div className="w-16 shrink-0 overflow-y-auto rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] py-2 flex flex-col gap-2">
+                {railServers.slice(0, 1).map((item) => (
+                  <ServerRailItem key={item.id} item={item} />
+                ))}
+                <div className="mx-auto h-px w-8 bg-[var(--color-surface-tertiary)]" />
+                {railServers.slice(1).map((item) => (
+                  <ServerRailItem key={item.id} item={item} />
+                ))}
+                {/* Add-server pill follows the same shape language — squircle
+                    on hover, no presence dot, no left pill (it's not a
+                    server you can be "in"). */}
+                <div className="group relative mt-auto flex h-12 w-16 items-center justify-center">
+                  <button
+                    type="button"
+                    aria-label="Add a server"
+                    className="flex h-12 w-12 items-center justify-center rounded-lg border border-dashed border-[var(--color-border)] text-lg text-[var(--color-text-secondary)] transition-all duration-200 group-hover:rounded-2xl group-hover:border-[var(--color-primary)] group-hover:text-[var(--color-primary)]"
+                  >
+                    +
+                  </button>
                 </div>
-                <div className="w-8 h-px bg-[var(--color-surface-tertiary)]" />
-                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[var(--color-surface-secondary)] text-sm font-semibold text-[var(--color-text-secondary)]">
-                  WS
-                </div>
-                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[var(--color-surface-secondary)] text-sm font-semibold text-[var(--color-text-secondary)]">
-                  DV
-                </div>
-                <button
-                  type="button"
-                  className="mt-auto flex h-12 w-12 items-center justify-center rounded-lg border border-dashed border-[var(--color-border)] text-lg text-[var(--color-text-secondary)]"
-                >
-                  +
-                </button>
               </div>
 
               {/* ChannelPanel */}
