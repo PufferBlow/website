@@ -124,7 +124,7 @@ Produces a fully static `dist/`. Serve it with any static host — Caddy, nginx,
 website/
 ├── public/
 │   ├── pufferblow-logo.svg     Brand mark used in nav + favicon
-│   └── icon.png                Higher-res icon
+│   └── (favicons, manifest, og-image, sitemap, robots, security.txt)
 ├── scripts/
 │   └── sync-docs.mjs           Refresh the docs snapshot from pufferblow/
 ├── src/

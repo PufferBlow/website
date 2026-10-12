@@ -1,0 +1,6 @@
+Contact: mailto:security@pufferblow.space
+Contact: https://github.com/pufferblow/pufferblow/security/advisories/new
+Expires: 2027-10-12T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://pufferblow.space/.well-known/security.txt
+Policy: https://github.com/pufferblow/pufferblow/blob/main/SECURITY.md
