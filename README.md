@@ -179,10 +179,17 @@ A handful of MkDocs-Material extensions used in the source docs (admonitions, `:
 
 `npm run build` produces a static `dist/` directory. There is no server component, no database, no API. Drop the directory behind any static host:
 
+### Cloudflare Workers (pufferblow.space)
+
+`wrangler.jsonc` serves `dist/` as static assets, with single-page-app fallback so `/docs/...` and `/download` resolve on refresh, and binds the custom domains `pufferblow.space` and `www.pufferblow.space` (the zone must be on the same Cloudflare account).
+
 ```bash
-# example: serve dist/ on any host
-npx serve dist
+npm run build
+npx wrangler login      # once
+npm run deploy          # build + wrangler deploy
 ```
+
+Security and cache headers live in `public/_headers`; `robots.txt` and `sitemap.xml` are in `public/`.
 
 The only external service the site talks to at runtime is the public GitHub Releases API (from the browser) for the download list. If that's offline, the download page falls back to a "browse releases on GitHub" link.
 

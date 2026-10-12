@@ -1,0 +1,15 @@
+{
+  // Static site: Workers serves ./dist directly, no Worker script needed.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "pufferblow-website",
+  "compatibility_date": "2025-09-01",
+  "assets": {
+    "directory": "./dist",
+    // Client-side routes (/docs/..., /download) fall back to index.html.
+    "not_found_handling": "single-page-application"
+  },
+  "routes": [
+    { "pattern": "pufferblow.space", "custom_domain": true },
+    { "pattern": "www.pufferblow.space", "custom_domain": true }
+  ]
+}

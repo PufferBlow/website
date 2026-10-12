@@ -1,38 +1,48 @@
+@import "@fontsource/marcellus/400.css";
+@import "@fontsource/barlow/400.css";
+@import "@fontsource/barlow/500.css";
+@import "@fontsource/barlow/700.css";
+@import "@fontsource/barlow-condensed/600.css";
+@import "@fontsource/jetbrains-mono/400.css";
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif, "Noto Color Emoji",
+  --font-sans: "Barlow", ui-sans-serif, system-ui, sans-serif, "Noto Color Emoji",
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-display: "Marcellus", Georgia, serif;
+  --font-heading: "Barlow Condensed", "Barlow", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", "SF Mono", Monaco,
     Inconsolata, "Roboto Mono", "Source Code Pro", monospace;
 }
 
+/* Switchyard: warm charcoal ground, parchment text, brass accent.
+   Same tokens as the app so the site and the product read as one thing. */
 :root {
-  --color-background: #050505;
-  --color-background-secondary: #0c0c0c;
-  --color-background-tertiary: #111111;
-  --color-surface: #101010;
-  --color-surface-secondary: #171717;
-  --color-surface-tertiary: #232323;
-  --color-text: #fafafa;
-  --color-text-secondary: #d4d4d4;
-  --color-text-tertiary: #a3a3a3;
-  --color-text-muted: #737373;
-  --color-border: rgba(255, 255, 255, 0.16);
-  --color-border-secondary: rgba(255, 255, 255, 0.08);
-  --color-primary: #fafafa;
-  --color-primary-hover: #e5e5e5;
-  --color-accent: #e5e5e5;
-  --color-success: #7ecf9f;
-  --color-warning: #d6b36a;
-  --color-error: #d8837b;
-  --color-info: #86aee8;
-  --color-hover: #1a1a1a;
-  --color-active: #242424;
-  --color-focus: #ffffff;
+  --color-background: #0d0b09;
+  --color-background-secondary: #16120e;
+  --color-background-tertiary: #1a1612;
+  --color-surface: #1a1612;
+  --color-surface-secondary: #231e19;
+  --color-surface-tertiary: #2e2720;
+  --color-text: #efe6d4;
+  --color-text-secondary: #e6dcc8;
+  --color-text-tertiary: #a99e8b;
+  --color-text-muted: #7d7365;
+  --color-border: rgba(239, 230, 212, 0.14);
+  --color-border-secondary: rgba(239, 230, 212, 0.08);
+  --color-primary: #e3ae4f;
+  --color-primary-hover: #efbf63;
+  --color-accent: #e3ae4f;
+  --color-success: #9fd487;
+  --color-warning: #e3ae4f;
+  --color-error: #e2654f;
+  --color-info: #8cc9d6;
+  --color-hover: #231e19;
+  --color-active: #2e2720;
+  --color-focus: #e3ae4f;
   --color-shadow: rgba(0, 0, 0, 0.22);
   --color-shadow-lg: rgba(0, 0, 0, 0.34);
-  --color-on-primary: #000000;
+  --color-on-primary: #1c1408;
 }
 
 html,
@@ -42,6 +52,21 @@ body {
   font-family: var(--font-sans);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 * {
@@ -112,6 +137,12 @@ body {
   font-weight: 600;
   letter-spacing: -0.025em;
   scroll-margin-top: 6rem;
+}
+
+.docs-prose h1,
+.docs-prose h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
 }
 
 .docs-prose h1 {
@@ -269,11 +300,11 @@ body {
 .docs-prose .hljs-selector-tag,
 .docs-prose .hljs-section,
 .docs-prose .hljs-title {
-  color: #c9a4ff;
+  color: #e3ae4f;
 }
 .docs-prose .hljs-string,
 .docs-prose .hljs-attr {
-  color: #a9d6a4;
+  color: #9fd487;
 }
 .docs-prose .hljs-number,
 .docs-prose .hljs-literal {
@@ -281,143 +312,32 @@ body {
 }
 .docs-prose .hljs-built_in,
 .docs-prose .hljs-type {
-  color: #86aee8;
+  color: #8cc9d6;
 }
 .docs-prose .hljs-variable,
 .docs-prose .hljs-name {
   color: var(--color-text);
 }
 
-/* Pufferblow brand mark */
-.pb-logo {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--color-text);
-  transition:
-    color 160ms ease,
-    opacity 160ms ease,
-    transform 160ms ease;
-}
-
-.pb-logo svg {
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-}
-
-.pb-logo-spoke {
-  stroke: currentColor;
-  stroke-width: 3.2;
-  stroke-linecap: round;
-  fill: none;
-}
-
-.pb-logo-ring {
-  stroke: currentColor;
-  stroke-width: 3.2;
-  fill: none;
-}
-
-.pb-logo-dot {
-  fill: currentColor;
-}
-
-.pb-logo-knockout {
-  fill: var(--pb-logo-cutout, var(--color-background));
-}
-
-.pb-logo-spoke-h-right,
-.pb-logo-spoke-h-left {
-  animation-delay: 0.1s;
-}
-
-.pb-logo-spoke-v-down,
-.pb-logo-spoke-v-up {
-  animation-delay: 0.2s;
-}
-
-.pb-logo-spoke-d1-br,
-.pb-logo-spoke-d1-tl {
-  animation-delay: 0.32s;
-}
-
-.pb-logo-spoke-d2-bl,
-.pb-logo-spoke-d2-tr {
-  animation-delay: 0.44s;
-}
-
-.pb-logo-animated .pb-logo-spoke {
-  stroke-dasharray: 32;
-  stroke-dashoffset: 32;
-  animation: pbLogoExtend 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.pb-logo-animated .pb-logo-knockout {
-  transform-box: fill-box;
-  transform-origin: center;
-  transform: scale(0);
-  animation: pbLogoKnockout 0.32s 0.62s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-}
-
-.pb-logo-animated .pb-logo-ring {
-  stroke-dasharray: 132;
-  stroke-dashoffset: 132;
-  transform-box: fill-box;
-  transform-origin: center;
-  transform: rotate(-90deg);
-  animation: pbLogoDrawRing 0.55s 0.62s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.pb-logo-animated .pb-logo-dot {
-  transform-box: fill-box;
-  transform-origin: center;
-  transform: scale(0);
-  animation: pbLogoPopDot 0.5s 1.12s cubic-bezier(0.34, 1.7, 0.64, 1) forwards;
-}
-
-.pb-logo-animated .pb-logo-mark {
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: pbLogoBreathe 4s 2s ease-in-out infinite;
-}
-
-@keyframes pbLogoExtend {
+/* Fediverse demo: a message packet travelling between two instances. */
+@keyframes pb-travel {
+  from {
+    left: var(--x0);
+    top: var(--y0);
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
   to {
-    stroke-dashoffset: 0;
+    left: var(--x1);
+    top: var(--y1);
+    opacity: 0;
   }
 }
 
-@keyframes pbLogoDrawRing {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-@keyframes pbLogoPopDot {
-  to {
-    transform: scale(1);
-  }
-}
-
-@keyframes pbLogoKnockout {
-  0% {
-    transform: scale(0);
-  }
-  72% {
-    transform: scale(1.07);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-@keyframes pbLogoBreathe {
-  0%,
-  100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.045);
-  }
+.pb-packet {
+  animation-name: pb-travel;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
 }

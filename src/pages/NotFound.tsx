@@ -12,7 +12,7 @@ export default function NotFound() {
         <div className="rounded-[1.75rem] border border-[var(--color-border-secondary)] bg-[var(--color-surface)] p-8">
           <div className="mb-6">
             <div className="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full border border-[var(--color-border-secondary)] bg-[var(--color-background)]">
-              <PufferblowMark size={44} surfaceColor="var(--color-background)" />
+              <PufferblowMark size={44} />
             </div>
             <h1 className="mb-2 text-6xl font-bold text-[var(--color-text)]">404</h1>
             <p className="text-xl text-[var(--color-text-secondary)]">
@@ -26,12 +26,6 @@ export default function NotFound() {
               className="inline-block w-full rounded-xl border border-[var(--color-primary)] bg-[var(--color-primary)] px-6 py-3 font-semibold text-[var(--color-on-primary)] transition-colors hover:bg-[var(--color-primary-hover)]"
             >
               Go Home
-            </Link>
-            <Link
-              to="/download"
-              className="inline-block w-full rounded-xl border border-[var(--color-border)] bg-[var(--color-background)] px-6 py-3 font-semibold text-[var(--color-text-secondary)] transition-colors hover:bg-[var(--color-hover)] hover:text-[var(--color-text)]"
-            >
-              Go to Download
             </Link>
           </div>
         </div>
