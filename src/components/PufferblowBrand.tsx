@@ -1,3 +1,5 @@
+import { useId } from "react";
+
 interface PufferblowMarkProps {
   size?: number;
   className?: string;
@@ -11,12 +13,37 @@ interface PufferblowBrandProps extends PufferblowMarkProps {
   align?: "left" | "center";
 }
 
-const INK = "#1c1408";
-const BRASS = "#e3ae4f";
-const SPINE = "M43.2 31 Q43.8 22 46 14.5 Q50.6 22 52.8 31Z";
+const CREAM = "#efe6d4";
+const SMALL_BELOW_PX = 32;
 
-/** The puffer: a brass tile with an inked body, spines and tail. Same artwork as the app icon. */
+// The v2 puffer face (brand sheet `UI mockups form v2`): a solid fill seen through a mask, so the
+// eyes and mouth are real cut-outs. Full mark from 32 px up, simplified mark below.
+const FULL = {
+  body: { x: 13, y: 33, width: 94, height: 64, rx: 32 },
+  spines:
+    "M22 48Q14.03 36.69 12 23Q27.26 26.06 40 35ZM80 35Q92.74 26.06 108 23Q105.97 36.69 98 48ZM50 34Q52.67 22.84 60 14Q67.33 22.84 70 34ZM14 61Q9.68 63.74 6 70Q7.16 76.74 15 80ZM105 80Q109.84 76.74 114 70Q113.32 63.74 106 61ZM30 92Q24.59 98.53 24 107Q36.16 103.83 46 96ZM74 96Q83.84 103.83 96 107Q95.41 98.53 90 92Z",
+  strokeWidth: 6,
+  eyes: [
+    { cx: 43, cy: 61, r: 11.5 },
+    { cx: 77, cy: 61, r: 11.5 },
+  ],
+  mouth: { cx: 60, cy: 84, rx: 7.5, ry: 5.5 },
+};
+const SMALL = {
+  body: { x: 10, y: 34, width: 100, height: 68, rx: 34 },
+  spines: "M22 50Q12.76 36.92 11 21Q28.24 24.9 42 36ZM78 36Q91.76 24.9 109 21Q107.24 36.92 98 50ZM48 36Q51.34 23.11 60 13Q68.66 23.11 72 36Z",
+  strokeWidth: 7,
+  eyes: [
+    { cx: 41, cy: 66, r: 14 },
+    { cx: 79, cy: 66, r: 14 },
+  ],
+  mouth: { cx: 60, cy: 90, rx: 8, ry: 6 },
+};
+
+/** The puffer face in cream, for the dark site. Same artwork as the app icon. */
 export function PufferblowMark({ size = 64, className = "" }: PufferblowMarkProps) {
+  const maskId = `pb-face-${useId().replace(/:/g, "")}`;
+  const shape = size < SMALL_BELOW_PX ? SMALL : FULL;
   return (
     <svg
       width={size}
@@ -27,23 +54,17 @@ export function PufferblowMark({ size = 64, className = "" }: PufferblowMarkProp
       className={`shrink-0 ${className}`.trim()}
     >
       <defs>
-        <linearGradient id="pb-mark-tile" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#f1c46a" />
-          <stop offset="1" stopColor="#cf8f2c" />
-        </linearGradient>
+        <mask id={maskId} maskUnits="userSpaceOnUse" x="0" y="0" width="120" height="120">
+          <rect width="120" height="120" fill="#000" />
+          <rect {...shape.body} fill="#fff" />
+          <path d={shape.spines} fill="#fff" stroke="#fff" strokeWidth={shape.strokeWidth} strokeLinejoin="round" />
+          {shape.eyes.map((eye) => (
+            <circle key={eye.cx} {...eye} fill="#000" />
+          ))}
+          <ellipse {...shape.mouth} fill="#000" />
+        </mask>
       </defs>
-      <rect width="120" height="120" rx="27" fill="url(#pb-mark-tile)" />
-      <g transform="translate(60 60) scale(.86) translate(-50 -52)" fill={INK}>
-        <path d="M27 45 C19 39 13 33.5 6.5 32.5 C8.5 40 10 46.5 13.5 52 C10 57.5 8.5 64 6.5 71.5 C13 70.5 19 65 27 59Z" />
-        {[0, 45, 135, 180, 225, 315].map((deg) => (
-          <path key={deg} d={SPINE} transform={`rotate(${deg} 48 52)`} />
-        ))}
-        <circle cx="48" cy="52" r="25.5" />
-        <circle cx="59" cy="45" r="7" fill={BRASS} />
-        <circle cx="74" cy="55" r="4.4" />
-        <circle cx="75" cy="55" r="2.3" fill={BRASS} />
-        <circle cx="86" cy="47" r="4" />
-      </g>
+      <rect width="120" height="120" fill={CREAM} mask={`url(#${maskId})`} />
     </svg>
   );
 }
