@@ -16,7 +16,7 @@ interface PufferblowBrandProps extends PufferblowMarkProps {
 const CREAM = "#efe6d4";
 const SMALL_BELOW_PX = 32;
 
-// The v2 puffer face (brand sheet `UI mockups form v2`): a solid fill seen through a mask, so the
+// The v2 puffer face (brand sheet `brand/ui-mockups-v2`): a solid fill seen through a mask, so the
 // eyes and mouth are real cut-outs. Full mark from 32 px up, simplified mark below.
 const FULL = {
   body: { x: 13, y: 33, width: 94, height: 64, rx: 32 },
