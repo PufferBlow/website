@@ -15,7 +15,8 @@
     Inconsolata, "Roboto Mono", "Source Code Pro", monospace;
 }
 
-/* Black and white: near-black ground, white accent; green and red are the only colours.
+/* Black and white for the surfaces and the accent; colour stays where it means something
+   (green, red, amber, blue).
    Same tokens as the app so the site and the product read as one thing. */
 :root {
   --color-background: #0a0a0a;
@@ -34,9 +35,9 @@
   --color-primary-hover: #e6e6e6;
   --color-accent: #ffffff;
   --color-success: #9fd487;
-  --color-warning: #cfcfcf;
+  --color-warning: #e3ae4f;
   --color-error: #e2654f;
-  --color-info: #d6d6d6;
+  --color-info: #8cc9d6;
   --color-hover: #1f1f1f;
   --color-active: #2a2a2a;
   --color-focus: #ffffff;
@@ -300,7 +301,7 @@ h2 {
 .docs-prose .hljs-selector-tag,
 .docs-prose .hljs-section,
 .docs-prose .hljs-title {
-  color: #ffffff;
+  color: #e3ae4f;
 }
 .docs-prose .hljs-string,
 .docs-prose .hljs-attr {
@@ -308,11 +309,11 @@ h2 {
 }
 .docs-prose .hljs-number,
 .docs-prose .hljs-literal {
-  color: #cfcfcf;
+  color: #f0b884;
 }
 .docs-prose .hljs-built_in,
 .docs-prose .hljs-type {
-  color: #bdbdbd;
+  color: #8cc9d6;
 }
 .docs-prose .hljs-variable,
 .docs-prose .hljs-name {

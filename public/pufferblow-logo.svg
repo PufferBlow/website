@@ -1,17 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 120 120">
-  <style>
-    .face { fill: #f2f2f2; }
-    @media (prefers-color-scheme: light) { .face { fill: #000000; } }
-  </style>
-  <defs>
-    <mask id="m" maskUnits="userSpaceOnUse" x="0" y="0" width="120" height="120">
-      <rect width="120" height="120" fill="#000"/>
-      <rect x="13" y="33" width="94" height="64" rx="32" fill="#fff"/>
-      <path d="M22 48Q14.03 36.69 12 23Q27.26 26.06 40 35ZM80 35Q92.74 26.06 108 23Q105.97 36.69 98 48ZM50 34Q52.67 22.84 60 14Q67.33 22.84 70 34ZM14 61Q9.68 63.74 6 70Q7.16 76.74 15 80ZM105 80Q109.84 76.74 114 70Q113.32 63.74 106 61ZM30 92Q24.59 98.53 24 107Q36.16 103.83 46 96ZM74 96Q83.84 103.83 96 107Q95.41 98.53 90 92Z" fill="#fff" stroke="#fff" stroke-width="6" stroke-linejoin="round"/>
-      <circle cx="43" cy="61" r="11.5" fill="#000"/>
-      <circle cx="77" cy="61" r="11.5" fill="#000"/>
-      <ellipse cx="60" cy="84" rx="7.5" ry="5.5" fill="#000"/>
-    </mask>
-  </defs>
-  <rect class="face" width="120" height="120" mask="url(#m)"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 120 120"><rect width="120" height="120" rx="30" fill="#000000"></rect><g transform="translate(60 61) scale(0.74) translate(-60 -62)"><g fill="#ffffff"><path d="M22 48Q14.03 36.69 12 23Q27.26 26.06 40 35ZM80 35Q92.74 26.06 108 23Q105.97 36.69 98 48ZM50 34Q52.67 22.84 60 14Q67.33 22.84 70 34ZM50 34Q52.67 22.84 60 14Q67.33 22.84 70 34ZM14 61Q9.68 63.74 6 70Q7.16 76.74 15 80ZM105 80Q109.84 76.74 114 70Q113.32 63.74 106 61ZM30 92Q24.59 98.53 24 107Q36.16 103.83 46 96ZM74 96Q83.84 103.83 96 107Q95.41 98.53 90 92Z" stroke="#ffffff" stroke-width="6" stroke-linejoin="round"></path><rect x="13" y="33" width="94" height="64" rx="32"></rect></g><g fill="#000000"><circle cx="43" cy="61" r="11.5"></circle><circle cx="77" cy="61" r="11.5"></circle><ellipse cx="60" cy="84" rx="7.5" ry="5.5"></ellipse></g></g></svg>

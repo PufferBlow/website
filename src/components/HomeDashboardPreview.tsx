@@ -22,18 +22,18 @@ import GoldPuffer from "./GoldPuffer";
 
 const PRESENCE = {
   online: { label: "Online", color: "#9fd487" },
-  idle: { label: "Idle", color: "#ffffff" },
+  idle: { label: "Idle", color: "#e3ae4f" },
   offline: { label: "Offline", color: "#555555" },
 } as const;
 
 type Presence = keyof typeof PRESENCE;
 
 const GRADIENTS: Record<string, string> = {
-  gold: "linear-gradient(135deg, #f2f2f2, #3a3a3a)",
-  violet: "linear-gradient(135deg, #cfcfcf, #3d3d3d)",
-  green: "linear-gradient(135deg, #bdbdbd, #333333)",
-  teal: "linear-gradient(135deg, #c4c4c4, #404040)",
-  coral: "linear-gradient(135deg, #e0e0e0, #383838)",
+  gold: "linear-gradient(135deg, #efbf63, #9a5b2a)",
+  violet: "linear-gradient(135deg, #c9a3f0, #5b3c8f)",
+  green: "linear-gradient(135deg, #9fd487, #3c6b33)",
+  teal: "linear-gradient(135deg, #8cc9d6, #2f5866)",
+  coral: "linear-gradient(135deg, #ef8a75, #7a2a20)",
 };
 
 type Msg = { author: string; gradient: string; time: string; text: string };
