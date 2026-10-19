@@ -22,18 +22,18 @@ import GoldPuffer from "./GoldPuffer";
 
 const PRESENCE = {
   online: { label: "Online", color: "#9fd487" },
-  idle: { label: "Idle", color: "#e3ae4f" },
-  offline: { label: "Offline", color: "#5f574b" },
+  idle: { label: "Idle", color: "#ffffff" },
+  offline: { label: "Offline", color: "#555555" },
 } as const;
 
 type Presence = keyof typeof PRESENCE;
 
 const GRADIENTS: Record<string, string> = {
-  gold: "linear-gradient(135deg, #efbf63, #9a5b2a)",
-  violet: "linear-gradient(135deg, #c9a3f0, #5b3c8f)",
-  green: "linear-gradient(135deg, #9fd487, #3c6b33)",
-  teal: "linear-gradient(135deg, #8cc9d6, #2f5866)",
-  coral: "linear-gradient(135deg, #ef8a75, #7a2a20)",
+  gold: "linear-gradient(135deg, #f2f2f2, #3a3a3a)",
+  violet: "linear-gradient(135deg, #cfcfcf, #3d3d3d)",
+  green: "linear-gradient(135deg, #bdbdbd, #333333)",
+  teal: "linear-gradient(135deg, #c4c4c4, #404040)",
+  coral: "linear-gradient(135deg, #e0e0e0, #383838)",
 };
 
 type Msg = { author: string; gradient: string; time: string; text: string };
@@ -163,16 +163,16 @@ function Sidebar({
     <aside className="hidden w-[244px] shrink-0 flex-col overflow-hidden rounded-[14px] bg-[var(--color-surface)] md:flex">
       <div
         className="relative h-[118px] shrink-0"
-        style={{ background: "radial-gradient(120% 100% at 20% 10%, #9a5b2a 0%, #1d1712 75%)" }}
+        style={{ background: "radial-gradient(120% 100% at 20% 10%, #3a3a3a 0%, #1a1a1a 75%)" }}
       >
-        <span className="absolute right-2.5 top-2.5 grid h-7 w-7 place-items-center rounded-lg bg-black/30 text-[#e6d8b3]">
+        <span className="absolute right-2.5 top-2.5 grid h-7 w-7 place-items-center rounded-lg bg-black/30 text-[#dadada]">
           <ChevronDown size={15} />
         </span>
         <div className="absolute inset-x-3.5 bottom-3">
           <h2 className="m-0 truncate font-display text-xl font-normal leading-tight tracking-normal text-[var(--color-text)]">
             Dev Community
           </h2>
-          <div className="mt-1 inline-flex items-center gap-1 text-[11px] text-[#e6d8b3]">
+          <div className="mt-1 inline-flex items-center gap-1 text-[11px] text-[#dadada]">
             <Globe size={11} />
             chat.example.org
           </div>

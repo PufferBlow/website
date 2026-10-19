@@ -46,7 +46,7 @@ function InstanceCard({
       aria-label={`Send a message from ${node.name} (${node.host})`}
       className={`absolute z-10 w-[190px] -translate-x-1/2 -translate-y-1/2 rounded-[14px] border bg-[var(--color-surface)] p-3 text-left shadow-[0_8px_24px_var(--color-shadow)] transition-[transform,border-color,box-shadow] hover:scale-[1.03] hover:border-[var(--color-primary)]/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-focus)] max-sm:w-[150px] max-sm:p-2.5 ${
         active || arrived ? "border-[var(--color-primary)]" : "border-[var(--color-border)]"
-      } ${arrived ? "shadow-[0_0_0_4px_rgba(227,174,79,0.18)]" : ""}`}
+      } ${arrived ? "shadow-[0_0_0_4px_rgba(255, 255, 255,0.18)]" : ""}`}
       style={{ left: `${node.x}%`, top: `${node.y}%` }}
     >
       <span className="flex items-center gap-2.5">
@@ -106,7 +106,7 @@ export default function FediversePreview() {
       aria-label="Interactive demo: click an instance to send a message to the others. Nothing is sent anywhere."
       className="relative h-[460px] overflow-hidden rounded-[1.5rem] border border-[var(--color-border)] bg-[var(--color-background)] shadow-[0_18px_42px_var(--color-shadow-lg)] sm:h-[440px]"
     >
-      <div className="absolute inset-0 bg-[repeating-linear-gradient(135deg,rgba(239,230,212,0.03)_0_2px,transparent_2px_16px)]" />
+      <div className="absolute inset-0 bg-[repeating-linear-gradient(135deg,rgba(242, 242, 242,0.03)_0_2px,transparent_2px_16px)]" />
 
       <svg className="absolute inset-0 h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
         {LINKS.map(([a, b]) => {
@@ -118,7 +118,7 @@ export default function FediversePreview() {
               y1={NODES[a]!.y}
               x2={NODES[b]!.x}
               y2={NODES[b]!.y}
-              stroke="#e3ae4f"
+              stroke="#ffffff"
               strokeOpacity={lit ? 0.9 : 0.4}
               strokeWidth={lit ? 2 : 1.5}
               strokeDasharray="5 5"
@@ -136,7 +136,7 @@ export default function FediversePreview() {
             <span
               key={`${sent.id}-${i}`}
               aria-hidden="true"
-              className="pb-packet pointer-events-none absolute z-20 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--color-primary)] shadow-[0_0_14px_3px_rgba(227,174,79,0.6)]"
+              className="pb-packet pointer-events-none absolute z-20 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--color-primary)] shadow-[0_0_14px_3px_rgba(255, 255, 255,0.6)]"
               style={
                 {
                   "--x0": `${NODES[sent.from]!.x}%`,

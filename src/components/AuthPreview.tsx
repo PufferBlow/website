@@ -160,7 +160,7 @@ function Screen({
 
       <button
         type="submit"
-        className="mt-1 flex h-12 items-center justify-center gap-2 rounded-xl bg-gradient-to-b from-[var(--color-primary-hover)] to-[#d99c3a] font-heading text-base font-semibold uppercase tracking-[0.1em] text-[var(--color-on-primary)] hover:brightness-105"
+        className="mt-1 flex h-12 items-center justify-center gap-2 rounded-xl bg-gradient-to-b from-[var(--color-primary-hover)] to-[#e6e6e6] font-heading text-base font-semibold uppercase tracking-[0.1em] text-[var(--color-on-primary)] hover:brightness-105"
       >
         {cta}
         <ArrowRight size={16} aria-hidden="true" />

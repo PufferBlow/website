@@ -15,34 +15,34 @@
     Inconsolata, "Roboto Mono", "Source Code Pro", monospace;
 }
 
-/* Switchyard: warm charcoal ground, parchment text, brass accent.
+/* Black and white: near-black ground, white accent; green and red are the only colours.
    Same tokens as the app so the site and the product read as one thing. */
 :root {
-  --color-background: #0d0b09;
-  --color-background-secondary: #16120e;
-  --color-background-tertiary: #1a1612;
-  --color-surface: #1a1612;
-  --color-surface-secondary: #231e19;
-  --color-surface-tertiary: #2e2720;
-  --color-text: #efe6d4;
-  --color-text-secondary: #e6dcc8;
-  --color-text-tertiary: #a99e8b;
-  --color-text-muted: #7d7365;
-  --color-border: rgba(239, 230, 212, 0.14);
-  --color-border-secondary: rgba(239, 230, 212, 0.08);
-  --color-primary: #e3ae4f;
-  --color-primary-hover: #efbf63;
-  --color-accent: #e3ae4f;
+  --color-background: #0a0a0a;
+  --color-background-secondary: #121212;
+  --color-background-tertiary: #161616;
+  --color-surface: #161616;
+  --color-surface-secondary: #1f1f1f;
+  --color-surface-tertiary: #2a2a2a;
+  --color-text: #f2f2f2;
+  --color-text-secondary: #e0e0e0;
+  --color-text-tertiary: #9a9a9a;
+  --color-text-muted: #707070;
+  --color-border: rgba(242, 242, 242, 0.14);
+  --color-border-secondary: rgba(242, 242, 242, 0.08);
+  --color-primary: #ffffff;
+  --color-primary-hover: #e6e6e6;
+  --color-accent: #ffffff;
   --color-success: #9fd487;
-  --color-warning: #e3ae4f;
+  --color-warning: #cfcfcf;
   --color-error: #e2654f;
-  --color-info: #8cc9d6;
-  --color-hover: #231e19;
-  --color-active: #2e2720;
-  --color-focus: #e3ae4f;
+  --color-info: #d6d6d6;
+  --color-hover: #1f1f1f;
+  --color-active: #2a2a2a;
+  --color-focus: #ffffff;
   --color-shadow: rgba(0, 0, 0, 0.22);
   --color-shadow-lg: rgba(0, 0, 0, 0.34);
-  --color-on-primary: #1c1408;
+  --color-on-primary: #000000;
 }
 
 html,
@@ -300,7 +300,7 @@ h2 {
 .docs-prose .hljs-selector-tag,
 .docs-prose .hljs-section,
 .docs-prose .hljs-title {
-  color: #e3ae4f;
+  color: #ffffff;
 }
 .docs-prose .hljs-string,
 .docs-prose .hljs-attr {
@@ -308,11 +308,11 @@ h2 {
 }
 .docs-prose .hljs-number,
 .docs-prose .hljs-literal {
-  color: #f0b884;
+  color: #cfcfcf;
 }
 .docs-prose .hljs-built_in,
 .docs-prose .hljs-type {
-  color: #8cc9d6;
+  color: #bdbdbd;
 }
 .docs-prose .hljs-variable,
 .docs-prose .hljs-name {

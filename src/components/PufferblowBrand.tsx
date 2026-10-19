@@ -13,7 +13,7 @@ interface PufferblowBrandProps extends PufferblowMarkProps {
   align?: "left" | "center";
 }
 
-const CREAM = "#efe6d4";
+const CREAM = "#f2f2f2";
 const SMALL_BELOW_PX = 32;
 
 // The v2 puffer face (brand sheet `brand/ui-mockups-v2`): a solid fill seen through a mask, so the
