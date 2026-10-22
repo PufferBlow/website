@@ -4,7 +4,7 @@
 import { useState, type FormEvent, type ReactNode } from "react";
 import { ArrowRight, AtSign, Eye, EyeOff, Lock } from "lucide-react";
 
-import GoldPuffer from "./GoldPuffer";
+import { PufferblowMark } from "./PufferblowBrand";
 
 const HANDLE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 const PASSWORD_MIN = 8;
@@ -95,7 +95,7 @@ function Screen({
   const submit = (e: FormEvent) => {
     e.preventDefault();
     const next: Errors = {};
-    if (!HANDLE.test(handle.trim())) next.handle = "Use a handle like name@chat.example.com.";
+    if (!HANDLE.test(handle.trim())) next.handle = "Use a handle like name@switchyard.works.";
     if (mode === "signin" && !password) next.password = "Enter your password.";
     if (mode === "signup") {
       if (password.length < PASSWORD_MIN) next.password = `Use at least ${PASSWORD_MIN} characters.`;
@@ -117,7 +117,7 @@ function Screen({
       className="flex flex-col gap-[18px] rounded-[14px] bg-[var(--color-surface)] px-7 py-8 sm:px-10"
     >
       <div className="flex items-center gap-2.5">
-        <GoldPuffer size={34} />
+        <PufferblowMark size={34} />
         <span className="font-display text-[24px] leading-none text-[var(--color-text)]">Pufferblow</span>
       </div>
       <div>
@@ -132,7 +132,7 @@ function Screen({
         icon={<AtSign size={16} />}
         value={handle}
         onChange={clear(setHandle)}
-        placeholder="name@chat.example.com"
+        placeholder="name@switchyard.works"
         error={errors.handle}
       />
       <Field

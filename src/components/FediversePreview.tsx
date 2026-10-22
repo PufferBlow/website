@@ -5,14 +5,15 @@
 import { useEffect, useRef, useState } from "react";
 import { Globe } from "lucide-react";
 
-import GoldPuffer from "./GoldPuffer";
+import { Avatar } from "./app/Avatar";
+import { SpaceIcon } from "./app/SpaceIcon";
 
 type Node = { host: string; name: string; people: string[]; x: number; y: number };
 
 const NODES: Node[] = [
-  { host: "chat.example.org", name: "Dev Community", people: ["ada", "linus"], x: 14, y: 36 },
-  { host: "club.example.net", name: "Book Club", people: ["grace"], x: 50, y: 78 },
-  { host: "hq.example.com", name: "Studio HQ", people: ["alan", "margaret"], x: 86, y: 36 },
+  { host: "switchyard.works", name: "Switchyard", people: ["ada", "linus"], x: 14, y: 36 },
+  { host: "kiln.social", name: "Kiln", people: ["grace"], x: 50, y: 78 },
+  { host: "mesh.garden", name: "Mesh Garden", people: ["alan", "margaret"], x: 86, y: 36 },
 ];
 
 const LINKS: [number, number][] = [
@@ -50,7 +51,7 @@ function InstanceCard({
       style={{ left: `${node.x}%`, top: `${node.y}%` }}
     >
       <span className="flex items-center gap-2.5">
-        <GoldPuffer size={30} />
+        <SpaceIcon id={node.host} name={node.name} size={40} />
         <span className="min-w-0 leading-tight">
           <span className="block truncate font-display text-[17px] text-[var(--color-text)]">{node.name}</span>
           <span className="flex items-center gap-1 truncate text-[11px] text-[var(--color-text-tertiary)]">
@@ -63,9 +64,10 @@ function InstanceCard({
         {node.people.map((p) => (
           <span
             key={p}
-            className="rounded-full bg-[var(--color-surface-secondary)] px-2 py-0.5 text-[11.5px] text-[var(--color-text-secondary)]"
+            className="inline-flex items-center gap-1.5 rounded-full bg-[var(--color-surface-secondary)] py-0.5 pl-0.5 pr-2 text-[11.5px] text-[var(--color-text-secondary)]"
           >
-            @{p}
+            <Avatar handle={`${p}@${node.host}`} size={18} ringColor="var(--color-surface-secondary)" />
+            {p}
           </span>
         ))}
       </span>

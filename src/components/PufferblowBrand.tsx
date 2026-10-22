@@ -3,6 +3,8 @@ import { useId } from "react";
 interface PufferblowMarkProps {
   size?: number;
   className?: string;
+  /** `current` takes the colour of the surrounding text, so hover and selected states can recolour it. */
+  tone?: "cream" | "current";
 }
 
 interface PufferblowBrandProps extends PufferblowMarkProps {
@@ -41,7 +43,7 @@ const SMALL = {
 };
 
 /** The puffer face in cream, for the dark site. Same artwork as the app icon. */
-export function PufferblowMark({ size = 64, className = "" }: PufferblowMarkProps) {
+export function PufferblowMark({ size = 64, className = "", tone = "cream" }: PufferblowMarkProps) {
   const maskId = `pb-face-${useId().replace(/:/g, "")}`;
   const shape = size < SMALL_BELOW_PX ? SMALL : FULL;
   return (
@@ -64,7 +66,7 @@ export function PufferblowMark({ size = 64, className = "" }: PufferblowMarkProp
           <ellipse {...shape.mouth} fill="#000" />
         </mask>
       </defs>
-      <rect width="120" height="120" fill={CREAM} mask={`url(#${maskId})`} />
+      <rect width="120" height="120" fill={tone === "current" ? "currentColor" : CREAM} mask={`url(#${maskId})`} />
     </svg>
   );
 }
