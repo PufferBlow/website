@@ -1,4 +1,4 @@
-// Interactive replica of the app's sign-in and create-account screens (client-new AuthLayout +
+// Interactive replica of the app's sign-in and create-account screens (client AuthLayout +
 // AuthFields). The fields are real and validate like the app does, but nothing is sent anywhere.
 
 import { useState, type FormEvent, type ReactNode } from "react";

@@ -1,5 +1,5 @@
 // A working copy of the app's chat view, built from the same markup, sizes and classes as the real
-// client (client-new): the space rail, the sidebar with its banner and grouped channels, the voice
+// client (client): the space rail, the sidebar with its banner and grouped channels, the voice
 // roster with speaking rings, the chat with role tags, mentions and puff reactions, the member list.
 // Everything is local state: switch channels, send a message, puff a reaction, join the voice
 // channel. Nothing leaves the page.

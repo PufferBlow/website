@@ -1,4 +1,4 @@
-// The app's avatar (client-new `components/dashboard/Avatar.tsx`), without the account plumbing: the
+// The app's avatar (client `components/dashboard/Avatar.tsx`), without the account plumbing: the
 // fish for a handle, a presence dot cut out of the surface, the sage speaking ring, the white
 // muted ring. Same sizes, same rules.
 

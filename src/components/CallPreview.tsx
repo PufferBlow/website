@@ -1,4 +1,4 @@
-// The call card from the app (client-new `CallOverlay`) with its safety number dialog, as a small
+// The call card from the app (client `CallOverlay`) with its safety number dialog, as a small
 // working demo: compare the digits, mark them as matching, and the lock changes.
 
 import { useState } from "react";
