@@ -2,7 +2,7 @@
 // fish for a handle, a presence dot cut out of the surface, the sage speaking ring, the white
 // muted ring. Same sizes, same rules.
 
-import { defaultAvatarUrl } from "../../lib/identity";
+import { defaultAvatarUrl } from "@pufferblow/spines";
 
 export type Presence = "online" | "idle" | "dnd" | "offline";
 

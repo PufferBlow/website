@@ -1,4 +1,4 @@
-import { parsePuff } from "../../lib/puff";
+import { parsePuff } from "@pufferblow/spines";
 
 const SPIKE_ANGLES = [0, 45, 90, 135, 180, 225, 270, 315] as const;
 

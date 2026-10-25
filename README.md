@@ -140,7 +140,7 @@ website/
 │   ├── pages/                  One file per route (Home, Download, Docs, Terms, Privacy, NotFound)
 │   ├── services/
 │   │   └── githubReleases.ts   GitHub Releases API client used by /download
-│   ├── app.css                 Theme tokens + docs prose + brand mark CSS
+│   ├── app.css                 Docs prose + brand mark CSS (tokens come from @pufferblow/spines)
 │   └── main.tsx                Router root
 ├── index.html
 └── vite.config.ts

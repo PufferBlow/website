@@ -7,6 +7,15 @@
     "skipLibCheck": true,
 
     "moduleResolution": "bundler",
+    // @pufferblow/spines is a linked folder; its imports of these resolve to this project's copies, so the
+    // linked folder needs no node_modules of its own (a CI checkout has none).
+    "paths": {
+      "react": ["./node_modules/@types/react"],
+      "react/*": ["./node_modules/@types/react/*"],
+      "react-dom": ["./node_modules/@types/react-dom"],
+      "react-dom/*": ["./node_modules/@types/react-dom/*"],
+      "lucide-react": ["./node_modules/lucide-react"]
+    },
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,

@@ -18,18 +18,29 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      # @pufferblow/spines is a path dependency (`file:../spines`), so it is checked out next to the site.
       - uses: actions/checkout@v4
+        with:
+          path: website
+      - uses: actions/checkout@v4
+        with:
+          repository: PufferBlow/spines
+          path: spines
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
+          cache-dependency-path: website/package-lock.json
       - run: npm ci
+        working-directory: website
       - run: npm run build
+        working-directory: website
       # Pages serves 404.html for unknown paths; reusing the app shell makes client-side routes work on refresh.
       - run: cp dist/index.html dist/404.html
+        working-directory: website
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: website/dist
 
   deploy:
     needs: build

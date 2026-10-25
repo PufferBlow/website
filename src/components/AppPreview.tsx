@@ -7,8 +7,8 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { ChevronDown, Globe, Hash, Headphones, Lock, MicOff, Mic, Paperclip, Pin, Plus, Search, Send, Settings, Users, Volume2, Bell } from "lucide-react";
 
-import { defaultBannerCss } from "../lib/identity";
-import { parsePuff, puffReaction, PUFF_FACES } from "../lib/puff";
+import { defaultBannerCss } from "@pufferblow/spines";
+import { parsePuff, puffReaction, PUFF_FACES } from "@pufferblow/spines";
 import { Avatar, CountBadge, presenceLabel, type Presence } from "./app/Avatar";
 import { HostPill } from "./app/HostPill";
 import { PuffFace } from "./app/PuffFace";

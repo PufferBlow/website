@@ -1,6 +1,6 @@
 import type { CSSProperties } from "react";
-import { identity, patternUrl, TONE_HEX } from "../../lib/identity";
-import { spaceIconStyle, spaceInitials, type SpaceIconStyle } from "../../lib/spaceIcon";
+import { identity, patternUrl, TONE_HEX } from "@pufferblow/spines";
+import { spaceIconStyle, spaceInitials, type SpaceIconStyle } from "@pufferblow/spines";
 
 const LAYOUT: Record<SpaceIconStyle, { place: string; pad: string; fs: number; deco: string | null; letters: 1 | 2 | 0 }> = {
   initials: { place: "center", pad: "0", fs: 38, deco: null, letters: 2 },
