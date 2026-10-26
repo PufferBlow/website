@@ -29,6 +29,7 @@ interface Feature {
   icon: LucideIcon;
   title: string;
   body: string;
+  points: { title: string; text: string }[];
   visual: ReactNode;
 }
 
@@ -66,6 +67,13 @@ const FEATURES: Feature[] = [
     icon: HardDrive,
     title: "Yours to run",
     body: "Open source (GPL-3.0) and self-hosted. One server, one media server and a database; the Docker setup brings a TURN relay too. Your messages stay on your machine.",
+
+    points: [
+      { title: "One small stack", text: "The server, the media server and a database. The Docker setup adds a TURN relay so calls connect through strict networks." },
+      { title: "Your data stays with you", text: "Messages and files live on the machine you run it on. Nothing needs a third-party service to work." },
+      { title: "Open source", text: "GPL-3.0. Read the code, send a fix, file an issue. The operator guide walks through setting it up." },
+      { title: "Still in development", text: "It is not ready for production use yet. The roadmap is public." },
+    ],
     visual: (
       <Terminal
         title="your server"
@@ -83,6 +91,14 @@ const FEATURES: Feature[] = [
     icon: Network,
     title: "Federated, on your terms",
     body: "Talk to people on other instances by handle. You pick the mode (open, allowlist or closed), approve or block each instance, and decide whether its pictures and files show up.",
+
+    points: [
+      { title: "Three modes", text: "Open talks to anyone, allowlist only to instances you approved, closed to nobody." },
+      { title: "Per instance", text: "Approve, limit or block each instance on its own. Blocking one does not touch the rest." },
+      { title: "Media you choose", text: "Decide whether a peer’s pictures and files are shown on your instance." },
+      { title: "Learned on first contact", text: "The first time an instance shows up, yours asks what software and version it runs, and keeps the answer." },
+      { title: "Handles", text: "People are addressed as name@instance, so a person is the same wherever you meet them." },
+    ],
     visual: (
       <div className="flex flex-col gap-1.5">
         <div className="flex gap-1 rounded-md bg-background p-1 text-[11.5px] font-semibold">
@@ -111,6 +127,13 @@ const FEATURES: Feature[] = [
     icon: ShieldCheck,
     title: "Calls only two people can hear",
     body: "1:1 calls are end-to-end encrypted. Each side signs its connection with a key only its device holds, and you can compare a safety number. Even through the media server, the audio is sealed.",
+
+    points: [
+      { title: "Keys stay on devices", text: "Each side signs its connection with a key only its device holds, so the server cannot stand in for either of you." },
+      { title: "A safety number", text: "Compare it out loud or in person to be sure no one is in the middle. Verified calls say so." },
+      { title: "Sealed through the server", text: "The media server forwards the audio but cannot read it." },
+      { title: "A record in the chat", text: "Calls show up in the direct message with their length, or as missed." },
+    ],
     visual: (
       <div className="flex flex-col gap-2">
         <div className={row}>
@@ -148,6 +171,13 @@ const FEATURES: Feature[] = [
     icon: Mic,
     title: "Voice that holds up",
     body: "Voice channels run on a Go media server: join, mute, deafen, see who is speaking. Rooms rejoin cleanly, and a call that cannot connect directly carries on through the server.",
+
+    points: [
+      { title: "Everything you expect", text: "Join, leave, mute, deafen, and a ring around whoever is speaking." },
+      { title: "Built on a Go media server", text: "One SFU carries the room, so a call does not depend on everyone reaching everyone." },
+      { title: "Rejoins cleanly", text: "Drop out and come back, and you land back in the room instead of a ghost seat." },
+      { title: "A way through", text: "When two people cannot connect directly, the call goes through the server’s relay." },
+    ],
     visual: (
       <div className="flex flex-col gap-1.5">
         <div className="flex items-center gap-2 px-1 text-[13px] font-semibold text-success">
@@ -186,6 +216,14 @@ const FEATURES: Feature[] = [
     icon: Hash,
     title: "Rooms with some order",
     body: "Text and voice channels in categories, topics, pins, replies, reactions and search. Reactions are puffer faces first, emoji too.",
+
+    points: [
+      { title: "Categories", text: "Channels sit in categories you can collapse. Text and Voice are the defaults and can be renamed or reordered." },
+      { title: "Pins and replies", text: "Pin what matters and see it in one list. Reply to a message and the quote stays attached." },
+      { title: "Search that filters", text: "Type from:ada, has:file, has:image or is:pinned along with words to narrow results." },
+      { title: "Files and pictures", text: "Attach them to a message, with a description, and edit it afterwards." },
+      { title: "Puff reactions", text: "Reactions are puffer faces first, emoji too, with a count of who reacted." },
+    ],
     visual: (
       <div className="flex flex-col gap-2">
         <div className="rounded-md bg-background px-2 py-1.5 text-[13px]">
@@ -231,6 +269,14 @@ const FEATURES: Feature[] = [
     icon: KeyRound,
     title: "Roles and a clear owner",
     body: "Owner, admins and roles with privileges you can read. Private channels, timeouts, and an audit trail of who changed what.",
+
+    points: [
+      { title: "Roles you can read", text: "Each role lists what it may do, and the member list is grouped by role with its colour." },
+      { title: "A clear owner", text: "One owner, then admins, then everyone else. Nobody guesses who can change settings." },
+      { title: "Private channels", text: "Keep a channel to the people who should see it." },
+      { title: "Timeouts", text: "Pause someone for a set time without removing them." },
+      { title: "An audit log", text: "Who changed what, and when, kept where admins can read it." },
+    ],
     visual: (
       <div className="flex flex-col gap-1.5">
         {[
@@ -263,6 +309,13 @@ const FEATURES: Feature[] = [
     icon: Activity,
     title: "Health you can see",
     body: "Uptime, latency, checks, incidents and linked instances on one page, so you know before your members tell you.",
+
+    points: [
+      { title: "Uptime and latency", text: "A 90-day uptime bar and response times, so slow patches are visible." },
+      { title: "Checks", text: "Database, media server and the rest reported one by one." },
+      { title: "Incidents", text: "When something went wrong and for how long, in one list." },
+      { title: "Linked instances", text: "The instances you federate with, and which ones are slow, next to your own numbers." },
+    ],
     visual: (
       <div className="flex flex-col gap-2.5 rounded-md bg-background p-3">
         <div className="flex items-baseline justify-between">
@@ -297,6 +350,13 @@ const FEATURES: Feature[] = [
     icon: Blocks,
     title: "Built to be extended",
     body: "Bot tokens that never do more than their owner can, a Python SDK, a documented API and a realtime protocol with versioned events.",
+
+    points: [
+      { title: "Bots that stay in their lane", text: "A bot token can never do more than the person who made it." },
+      { title: "pypufferblow", text: "A Python SDK for signing in, reading channels and sending messages." },
+      { title: "A documented API", text: "Every route is described in the developer docs." },
+      { title: "A realtime protocol", text: "Events carry a version, so clients and bots can tell when something changed shape." },
+    ],
     visual: (
       <Terminal
         title="bot.py"
@@ -328,6 +388,13 @@ const FEATURES: Feature[] = [
     icon: Globe,
     title: "Recognisable everywhere",
     body: "Everyone gets a fish and a colour from their handle, the same on every instance, so you can tell people apart across the fediverse before they set a picture.",
+
+    points: [
+      { title: "From the handle", text: "Your fish and colour are worked out from your handle, so everyone gets one without doing anything." },
+      { title: "The same everywhere", text: "Another instance computes the same face, so you recognise people across the fediverse." },
+      { title: "Yours to replace", text: "Set a picture whenever you like; the fish is the fallback." },
+      { title: "Servers too", text: "Server tiles get a generated icon the same way." },
+    ],
     visual: (
       <div className="flex flex-col gap-2.5 rounded-md bg-background p-3">
         <div className="flex items-center justify-between">
@@ -346,26 +413,32 @@ const FEATURES: Feature[] = [
 
 export default function Features() {
   return (
-    <ul className="m-0 grid list-none gap-3 p-0 sm:grid-cols-2 lg:grid-cols-3">
-      {FEATURES.map(({ icon: Icon, title, body, visual }) => (
+    <ul className="m-0 flex list-none flex-col gap-6 p-0">
+      {FEATURES.map(({ icon: Icon, title, body, points, visual }, n) => (
         <li
           key={title}
-          className="flex flex-col gap-3 rounded-xl bg-surface p-4 shadow-[inset_0_0_0_1px_rgba(242,242,242,0.08)]"
+          className="grid grid-cols-1 items-center gap-8 rounded-2xl bg-surface p-6 shadow-[inset_0_0_0_1px_rgba(242,242,242,0.08)] sm:p-8 lg:grid-cols-2 lg:gap-14 lg:p-10"
         >
-          <div className="min-h-[168px] rounded-lg bg-surface-tertiary/40 p-2.5">
-            {visual}
+          <div className={`min-w-0 ${n % 2 ? "lg:order-2" : ""}`}>
+            <div className="flex items-center gap-2.5">
+              <span className="grid size-9 place-items-center rounded-md bg-surface-secondary text-text">
+                <Icon size={18} aria-hidden="true" />
+              </span>
+              <h3 className="m-0 text-2xl sm:text-3xl">{title}</h3>
+            </div>
+            <p className="mb-0 mt-4 text-base leading-relaxed text-text-body">{body}</p>
+            <dl className="m-0 mt-6 grid gap-x-8 gap-y-4 sm:grid-cols-2">
+              {points.map((pt) => (
+                <div key={pt.title}>
+                  <dt className="text-[14px] font-semibold text-text">{pt.title}</dt>
+                  <dd className="m-0 mt-1 text-[13.5px] leading-relaxed text-text-tertiary">{pt.text}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
-          <div className="flex items-center gap-2 pt-1">
-            <span className="grid size-7 place-items-center rounded-md bg-surface-secondary text-text">
-              <Icon size={15} aria-hidden="true" />
-            </span>
-            <h3 className="pb-section-label m-0 !text-[13px] !text-text">
-              {title}
-            </h3>
+          <div className={`min-w-0 rounded-xl bg-surface-tertiary/40 p-4 sm:p-6 ${n % 2 ? "lg:order-1" : ""}`}>
+            <div className="mx-auto w-full max-w-md">{visual}</div>
           </div>
-          <p className="m-0 text-[14px] leading-relaxed text-text-tertiary">
-            {body}
-          </p>
         </li>
       ))}
     </ul>
