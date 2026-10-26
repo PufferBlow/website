@@ -20,7 +20,7 @@
     "@fontsource/barlow-condensed": "^5.3.0",
     "@fontsource/jetbrains-mono": "^5.3.0",
     "@fontsource/marcellus": "^5.3.0",
-    "@pufferblow/spines": "file:../spines",
+    "@pufferblow/spines": "git+https://github.com/PufferBlow/spines.git",
     "lucide-react": "^1.55.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
