@@ -14,6 +14,7 @@ import {
   FileText,
   Globe,
   Hash,
+  ArrowLeftRight,
   Headphones,
   Lock,
   Mic,
@@ -39,7 +40,7 @@ import { parsePuff, puffReaction, PUFF_FACES } from "@pufferblow/spines";
 import { Avatar, CountBadge, presenceLabel, type Presence } from "./app/Avatar";
 import { HostPill } from "./app/HostPill";
 import { PuffFace } from "./app/PuffFace";
-import { RoleTag } from "./app/RoleTag";
+import { BadgeOf } from "./app/roleBadge";
 import { SpaceIcon } from "./app/SpaceIcon";
 import { PufferblowMark } from "./PufferblowBrand";
 
@@ -346,9 +347,7 @@ function Message({
         {!grouped && (
           <header className="flex flex-wrap items-baseline gap-2">
             <span className="pb-username">{person.name}</span>
-            {person.role && (
-              <RoleTag name={person.role.name} colour={person.role.colour} />
-            )}
+            {person.role && <BadgeOf role={person.role.name} size={16} />}
             {remote && <HostPill host={person.host} />}
             <time className="pb-timestamp">{message.time}</time>
             {pinned && (
@@ -1369,6 +1368,9 @@ export default function AppPreview() {
                             >
                               {person.name}
                             </span>
+                            {person.role && (
+                              <BadgeOf role={person.role.name} size={20} />
+                            )}
                             {person.host !== HOME && (
                               <HostPill host={person.host} />
                             )}
@@ -1414,6 +1416,9 @@ export default function AppPreview() {
           </button>
           <span className={iconButton}>
             <Headphones size={16} aria-hidden="true" />
+          </span>
+          <span className={iconButton} title="Switch account">
+            <ArrowLeftRight size={16} aria-hidden="true" />
           </span>
           <span className={iconButton}>
             <Settings size={16} aria-hidden="true" />

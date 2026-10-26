@@ -21,7 +21,7 @@ import type { ReactNode } from "react";
 import { Avatar } from "./app/Avatar";
 import { HostPill } from "./app/HostPill";
 import { PuffFace } from "./app/PuffFace";
-import { RoleTag } from "./app/RoleTag";
+import { BadgeOf } from "./app/roleBadge";
 import { SpaceIcon } from "./app/SpaceIcon";
 import { Terminal } from "./app/Terminal";
 
@@ -133,6 +133,7 @@ const FEATURES: Feature[] = [
       { title: "A safety number", text: "Compare it out loud or in person to be sure no one is in the middle. Verified calls say so." },
       { title: "Sealed through the server", text: "The media server forwards the audio but cannot read it." },
       { title: "A record in the chat", text: "Calls show up in the direct message with their length, or as missed." },
+      { title: "Only 1:1 calls", text: "Voice channels are group calls the media server hosts. They are not end-to-end encrypted, and the app does not say they are." },
     ],
     visual: (
       <div className="flex flex-col gap-2">
@@ -170,12 +171,12 @@ const FEATURES: Feature[] = [
   {
     icon: Mic,
     title: "Voice that holds up",
-    body: "Voice channels run on a Go media server: join, mute, deafen, see who is speaking. Rooms rejoin cleanly, and a call that cannot connect directly carries on through the server.",
+    body: "Voice channels run on a Go media server: join, mute, deafen, see who is speaking. Voice channels rejoin cleanly, and a call that cannot connect directly carries on through the server.",
 
     points: [
       { title: "Everything you expect", text: "Join, leave, mute, deafen, and a ring around whoever is speaking." },
-      { title: "Built on a Go media server", text: "One SFU carries the room, so a call does not depend on everyone reaching everyone." },
-      { title: "Rejoins cleanly", text: "Drop out and come back, and you land back in the room instead of a ghost seat." },
+      { title: "Built on a Go media server", text: "One SFU carries each voice channel, so a call does not depend on everyone reaching everyone." },
+      { title: "Rejoins cleanly", text: "Drop out and come back, and you land back in the channel instead of a ghost seat." },
       { title: "A way through", text: "When two people cannot connect directly, the call goes through the server’s relay." },
     ],
     visual: (
@@ -214,7 +215,7 @@ const FEATURES: Feature[] = [
   },
   {
     icon: Hash,
-    title: "Rooms with some order",
+    title: "Channels with some order",
     body: "Text and voice channels in categories, topics, pins, replies, reactions and search. Reactions are puffer faces first, emoji too.",
 
     points: [
@@ -280,17 +281,18 @@ const FEATURES: Feature[] = [
     visual: (
       <div className="flex flex-col gap-1.5">
         {[
-          { who: "ada", role: "Owner", colour: "#e3ae4f" },
-          { who: "grace", role: "Moderator", colour: "#a99cf2" },
-          { who: "linus", role: "Member", colour: "#9fcf8a" },
+          { who: "ada", role: "Owner" },
+          { who: "grace", role: "Admin" },
+          { who: "linus", role: "Moderator" },
         ].map((p) => (
           <div key={p.who} className={row}>
             <Avatar handle={`${p.who}@switchyard.works`} size={26} />
             <span className="text-[13px] font-semibold capitalize">
               {p.who}
             </span>
-            <span className="ml-auto">
-              <RoleTag name={p.role} colour={p.colour} />
+            <span className="ml-auto flex items-center gap-1.5 text-[12px] text-text-tertiary">
+              {p.role}
+              <BadgeOf role={p.role} size={20} />
             </span>
           </div>
         ))}

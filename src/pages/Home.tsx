@@ -1,7 +1,6 @@
 import type { ReactNode } from "react";
 import AppPreview from "../components/AppPreview";
 import AuthPreview from "../components/AuthPreview";
-import CallPreview from "../components/CallPreview";
 import FediversePreview from "../components/FediversePreview";
 import Features from "../components/Features";
 import { GITHUB_URL, SiteFooter, SiteNav } from "../components/SiteChrome";
@@ -53,10 +52,6 @@ export default function Home() {
 
         <Section id="why" label="Why Pufferblow" title="Small to run. Hard to lock you in." note="What it does today, in plain words. Anything still being built says so.">
           <Features />
-        </Section>
-
-        <Section id="calls" label="Private calls" title="Calls that are actually private.">
-          <CallPreview />
         </Section>
 
         <Section label="Accounts" title="Sign in with a handle, or create an account.">
